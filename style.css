@@ -1,37 +1,37 @@
 /* Custom Title Bar */
 .title-bar {
-    height: 30px; /* Height of the title bar */
-    background-color: #2d2d2d; /* Dark gray background */
+    height: 30px;
+    background-color: #2d2d2d;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    -webkit-app-region: drag; /* Allow dragging the window */
-    border-bottom: 2px solid #000; /* Pixelated border */
+    -webkit-app-region: drag;
+    border-bottom: 2px solid #000;
   }
   
   .title-bar-text {
-    font-family: 'PixelFont', sans-serif; /* Use a pixel font */
+    font-family: "PixelFont", sans-serif;
     font-size: 16px;
-    color: #fff; /* White text */
-    image-rendering: pixelated; /* Pixelated text */
+    color: #fff;
+    image-rendering: pixelated;
   }
   
   .title-bar-controls {
     display: flex;
-    gap: 5px; /* Space between buttons */
-    -webkit-app-region: no-drag; /* Prevent buttons from being draggable */
+    gap: 5px;
+    -webkit-app-region: no-drag;
   }
   
   .pixel-button {
-    width: 20px; /* Button size */
+    width: 20px;
     height: 20px;
-    background-color: #555; /* Button background */
-    border: 2px solid #000; /* Pixelated border */
-    color: #fff; /* White text */
-    font-family: 'PixelFont', sans-serif; /* Use a pixel font */
+    background-color: #555;
+    border: 2px solid #000;
+    color: #fff;
+    font-family: "PixelFont", sans-serif;
     font-size: 14px;
-    image-rendering: pixelated; /* Pixelated buttons */
+    image-rendering: pixelated;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -39,7 +39,7 @@
   }
   
   .pixel-button:hover {
-    background-color: #777; /* Hover effect */
+    background-color: #777;
   }
   
   /* Main Content */
@@ -47,29 +47,64 @@
     margin: 0;
     overflow: hidden;
     display: flex;
-    flex-direction: column; /* Stack title bar and content vertically */
+    flex-direction: column;
     height: 100vh;
-    background-color: #000; /* Fallback background color */
+    background-color: #000;
   }
   
   .background-container {
-    flex: 1; /* Take up remaining space */
-    background-image: url('assets/background.png'); /* PNG background */
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the background */
+    flex: 1;
+    background-image: url("assets/background.png");
+    background-size: cover;
+    background-position: center;
     position: relative;
-    image-rendering: pixelated; /* Pixelate the background */
+    image-rendering: pixelated;
   }
   
   .cat-container {
     position: absolute;
-    top: 50%; /* Center the cat vertically */
-    left: 50%; /* Center the cat horizontally */
-    transform: translate(-50%, -50%); /* Offset to truly center the cat */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   #cat {
-    width: 164px; /* Adjust based on your pixel art size */
+    width: 164px;
     height: 164px;
-    image-rendering: pixelated; /* Keeps pixel art crisp */
+    image-rendering: pixelated;
   }
+  
+  /* New Bottom Buttons */
+  .bottom-buttons {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+  }
+  
+  .bottom-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+  
+  .bottom-btn img {
+    width: 100px; /* Adjust based on your pixel art size */
+    height: 50px; /* Adjust based on your pixel art size */
+    image-rendering: pixelated;
+  }
+  
+  .bottom-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .bottom-btn:active {
+    transform: scale(0.9);
+  }
+  
+  

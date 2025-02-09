@@ -5,8 +5,8 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 500,
-    height: 500,
+    width: 550,
+    height: 650,
     resizable: false,
     frame: false, // Disable the default title bar
     webPreferences: {
