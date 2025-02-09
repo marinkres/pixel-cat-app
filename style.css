@@ -1,0 +1,75 @@
+/* Custom Title Bar */
+.title-bar {
+    height: 30px; /* Height of the title bar */
+    background-color: #2d2d2d; /* Dark gray background */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    -webkit-app-region: drag; /* Allow dragging the window */
+    border-bottom: 2px solid #000; /* Pixelated border */
+  }
+  
+  .title-bar-text {
+    font-family: 'PixelFont', sans-serif; /* Use a pixel font */
+    font-size: 16px;
+    color: #fff; /* White text */
+    image-rendering: pixelated; /* Pixelated text */
+  }
+  
+  .title-bar-controls {
+    display: flex;
+    gap: 5px; /* Space between buttons */
+    -webkit-app-region: no-drag; /* Prevent buttons from being draggable */
+  }
+  
+  .pixel-button {
+    width: 20px; /* Button size */
+    height: 20px;
+    background-color: #555; /* Button background */
+    border: 2px solid #000; /* Pixelated border */
+    color: #fff; /* White text */
+    font-family: 'PixelFont', sans-serif; /* Use a pixel font */
+    font-size: 14px;
+    image-rendering: pixelated; /* Pixelated buttons */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pixel-button:hover {
+    background-color: #777; /* Hover effect */
+  }
+  
+  /* Main Content */
+  body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Stack title bar and content vertically */
+    height: 100vh;
+    background-color: #000; /* Fallback background color */
+  }
+  
+  .background-container {
+    flex: 1; /* Take up remaining space */
+    background-image: url('assets/background.png'); /* PNG background */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background */
+    position: relative;
+    image-rendering: pixelated; /* Pixelate the background */
+  }
+  
+  .cat-container {
+    position: absolute;
+    top: 50%; /* Center the cat vertically */
+    left: 50%; /* Center the cat horizontally */
+    transform: translate(-50%, -50%); /* Offset to truly center the cat */
+  }
+  
+  #cat {
+    width: 164px; /* Adjust based on your pixel art size */
+    height: 164px;
+    image-rendering: pixelated; /* Keeps pixel art crisp */
+  }
