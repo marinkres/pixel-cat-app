@@ -4,21 +4,28 @@ const feedBtn = document.getElementById('feed-btn');
 const resetBtn = document.getElementById('reset-btn');
 const backgroundContainer = document.getElementById('background-container');
 const catsContainer = document.querySelector('.cats-container');
-const textContainer = document.getElementById('text-container'); // Get the text container
-const closeTextBtn = document.getElementById('close-text-btn'); // Get the close button
+const textContainer = document.getElementById('text-container');
+const textContent = document.getElementById('text-content');
+const blinkingCursor = document.getElementById('blinking-cursor');
+const okBtn = document.getElementById('ok-btn');
+const bottomButtons = document.getElementById('bottom-buttons');
 
 // Background Music
 const backgroundMusic = new Audio('assets/background-music.mp3');
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.5;
 
-window.addEventListener('DOMContentLoaded', () => {
-  backgroundMusic.play().catch(err => console.error("Music playback failed:", err));
-});
-
 // Click Sound
 const clickSound = new Audio('assets/lamp.mp3');
 clickSound.volume = 0.7;
+
+// Meow Sound
+const meowSound = new Audio('assets/meow.mp3');
+meowSound.volume = 0.7;
+
+window.addEventListener('DOMContentLoaded', () => {
+  backgroundMusic.play().catch(err => console.error("Music playback failed:", err));
+});
 
 // Title Bar Controls
 minimizeBtn.addEventListener('click', () => {
@@ -33,17 +40,28 @@ closeBtn.addEventListener('click', () => {
 function typeText(text, element, speed = 50) {
     let i = 0;
     element.textContent = ''; // Clear the text container
-    element.style.display = 'block'; // Show the text container
+    textContainer.style.display = 'block'; // Show the text container
+    bottomButtons.style.display = 'none'; // Hide the bottom buttons
 
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
             i++;
             setTimeout(type, speed);
+        } else {
+            blinkingCursor.style.display = 'inline'; // Show blinking cursor at the end
         }
     }
     type();
 }
+
+// OK Button
+okBtn.addEventListener('click', () => {
+    textContainer.style.display = 'none'; // Hide the text container
+    bottomButtons.style.display = 'flex'; // Show the bottom buttons
+    textContent.textContent = ''; // Clear the text
+    blinkingCursor.style.display = 'none'; // Hide the blinking cursor
+});
 
 // Feed Button
 feedBtn.addEventListener('click', () => {
@@ -56,13 +74,7 @@ feedBtn.addEventListener('click', () => {
     feedBtn.disabled = true;
 
     // Trigger the typing effect
-    typeText("Lorena: Ocu Sushi i seksa mi se", textContainer);
-});
-
-// Close Text Button
-closeTextBtn.addEventListener('click', () => {
-    textContainer.style.display = 'none'; // Hide the text container
-    textContainer.textContent = ''; // Clear the text
+    typeText("Lorena: Ocu sushi seksa mi se...", textContent);
 });
 
 // Reset Button
@@ -93,6 +105,12 @@ function spawnNewCat() {
         newCatContainer.appendChild(newCat);
         catsContainer.appendChild(newCatContainer);
         animateNewCat(newCat);
+
+        // Add click event to the new cat
+        newCat.addEventListener('click', () => {
+            meowSound.currentTime = 0; // Reset sound to start
+            meowSound.play(); // Play the meow sound
+        });
     }
 }
 
@@ -122,12 +140,22 @@ function resetApp() {
 
     // Hide the text container
     textContainer.style.display = 'none';
-    textContainer.textContent = ''; // Clear the text
+    textContent.textContent = ''; // Clear the text
+    blinkingCursor.style.display = 'none'; // Hide the blinking cursor
+
+    // Show the bottom buttons
+    bottomButtons.style.display = 'flex';
 
     // Restart the animation after a short delay
     setTimeout(() => {
         const cat = document.getElementById('cat');
         animateCat(cat);
+
+        // Add click event to the main cat
+        cat.addEventListener('click', () => {
+            meowSound.currentTime = 0; // Reset sound to start
+            meowSound.play(); // Play the meow sound
+        });
     }, 100);
 }
 
@@ -176,3 +204,10 @@ function animateNewCat(newCat) {
 
 // Start the animation on load
 animateCat();
+
+// Add click event to the main cat
+const mainCat = document.getElementById('cat');
+mainCat.addEventListener('click', () => {
+    meowSound.currentTime = 0; // Reset sound to start
+    meowSound.play(); // Play the meow sound
+});

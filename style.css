@@ -1,7 +1,7 @@
 /* Custom Title Bar */
 .title-bar {
     height: 40px;
-    background-color: #7e0083;
+    background-color: #8c0099;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -65,18 +65,17 @@ body {
 /* Text Container */
 .text-container {
     position: absolute;
-    top: 20px;
+    bottom: 20px; /* Move to the bottom */
     left: 50%;
     transform: translateX(-50%);
-    max-width: 400px; /* Set a maximum width */
+    max-width: 700px; /* Set a maximum width */
     width: auto; /* Allow width to adjust dynamically */
     min-width: 200px; /* Set a minimum width */
-    text-align: center;
+    text-align: left;
     font-family: 'Press Start 2P', cursive;
     font-size: 16px;
     color: #fff;
     image-rendering: pixelated;
-    white-space: pre-wrap; /* Allow text to wrap */
     overflow: hidden;
     border: 2px solid #fff;
     padding: 10px;
@@ -86,27 +85,37 @@ body {
     word-wrap: break-word; /* Break long words if necessary */
 }
 
-/* Close Button for Text Container */
-.close-text-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: transparent;
-    border: none;
+/* Blinking Cursor */
+#blinking-cursor {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+/* OK Button */
+#ok-btn {
+    margin-top: 10px;
+    background-color: #000;
+    border: 2px solid #fff;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
     font-size: 14px;
+    padding: 5px 10px;
     cursor: pointer;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: transform 0.1s ease;
 }
 
-.close-text-btn:hover {
-    color: #ff5555;
+#ok-btn:hover {
+    background-color: #333;
+    transform: scale(1.1);
+}
+
+#ok-btn:active {
+    transform: scale(0.9);
 }
 
 /* Cats Container */
@@ -159,12 +168,11 @@ body {
     cursor: pointer;
     transition: transform 0.1s ease;
     image-rendering: pixelated;
-    width: 80px;
-    height: 30px;
+    width: 90px;
 }
 
 .bottom-btn:hover {
-    background-color: #333; /* Darker background on hover */
+    background-color: #8c0099; /* Darker background on hover */
     transform: scale(1.1);
 }
 

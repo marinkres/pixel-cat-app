@@ -10,7 +10,7 @@
 <body>
   <!-- Custom Title Bar -->
   <div class="title-bar">
-    <div class="title-bar-text">Pixel Cat</div>
+    <div class="title-bar-text">Malesnica Simulator</div>
     <div class="title-bar-controls">
       <button id="minimize-btn" class="pixel-button">-</button>
       <button id="close-btn" class="pixel-button">x</button>
@@ -21,7 +21,8 @@
   <div id="background-container" class="background-container">
     <!-- Text Container -->
     <div id="text-container" class="text-container">
-      <button id="close-text-btn" class="close-text-btn">X</button>
+      <span id="text-content"></span><span id="blinking-cursor">|</span>
+      <button id="ok-btn" class="pixel-button bottom-btn">OK</button>
     </div>
 
     <!-- Cats Container -->
@@ -33,7 +34,7 @@
     </div>
 
     <!-- Bottom Buttons -->
-    <div class="bottom-buttons">
+    <div id="bottom-buttons" class="bottom-buttons">
       <button class="pixel-button bottom-btn" id="feed-btn">1</button>
       <button class="pixel-button bottom-btn" id="play-btn">2</button>
       <button class="pixel-button bottom-btn" id="sleep-btn">3</button>
