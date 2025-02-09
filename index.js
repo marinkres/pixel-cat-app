@@ -5,7 +5,7 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 550,
+    width: 600,
     height: 650,
     resizable: false,
     frame: false, // Disable the default title bar
