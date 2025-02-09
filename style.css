@@ -59,16 +59,26 @@
     background-position: center;
     position: relative;
     image-rendering: pixelated;
+    transition: background-image 0.5s ease; /* Add smooth transition */
   }
   
-  .cat-container {
+  .cats-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px; /* Adjust this value to set the space between cats */
   }
   
-  #cat {
+  .cat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #cat,
+  .new-cat {
     width: 164px;
     height: 164px;
     image-rendering: pixelated;
