@@ -5,6 +5,7 @@ const resetBtn = document.getElementById('reset-btn');
 const backgroundContainer = document.getElementById('background-container');
 const catsContainer = document.querySelector('.cats-container');
 const textContainer = document.getElementById('text-container'); // Get the text container
+const closeTextBtn = document.getElementById('close-text-btn'); // Get the close button
 
 // Background Music
 const backgroundMusic = new Audio('assets/background-music.mp3');
@@ -33,6 +34,7 @@ function typeText(text, element, speed = 50) {
     let i = 0;
     element.textContent = ''; // Clear the text container
     element.style.display = 'block'; // Show the text container
+
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
@@ -54,7 +56,13 @@ feedBtn.addEventListener('click', () => {
     feedBtn.disabled = true;
 
     // Trigger the typing effect
-    typeText("Lorena: ocu sushi seksa mi se", textContainer);
+    typeText("Lorena: Ocu Sushi i seksa mi se", textContainer);
+});
+
+// Close Text Button
+closeTextBtn.addEventListener('click', () => {
+    textContainer.style.display = 'none'; // Hide the text container
+    textContainer.textContent = ''; // Clear the text
 });
 
 // Reset Button

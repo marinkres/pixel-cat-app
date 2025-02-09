@@ -1,7 +1,7 @@
 /* Custom Title Bar */
 .title-bar {
     height: 30px;
-    background-color: #2d2d2d;
+    background-color: #7e0083;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +11,7 @@
 }
 
 .title-bar-text {
-    font-family: 'PixelFont', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     font-size: 16px;
     color: #fff;
     image-rendering: pixelated;
@@ -29,7 +29,7 @@
     background-color: #555;
     border: 2px solid #000;
     color: #fff;
-    font-family: 'PixelFont', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     font-size: 14px;
     image-rendering: pixelated;
     cursor: pointer;
@@ -68,18 +68,45 @@ body {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    max-width: 400px; /* Set a maximum width */
+    width: auto; /* Allow width to adjust dynamically */
+    min-width: 200px; /* Set a minimum width */
     text-align: center;
-    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    font-family: 'Press Start 2P', cursive;
     font-size: 16px;
     color: #fff;
     image-rendering: pixelated;
-    white-space: nowrap;
+    white-space: pre-wrap; /* Allow text to wrap */
     overflow: hidden;
     border: 2px solid #fff;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.7);
-    display: none; /* Initially hidden */
+    display: none;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Break long words if necessary */
+}
+
+/* Close Button for Text Container */
+.close-text-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-text-btn:hover {
+    color: #ff5555;
 }
 
 /* Cats Container */
@@ -89,7 +116,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    gap: 0px; /* No spacing between cats */
+    gap: 0px;
     justify-content: center;
     align-items: center;
 }
