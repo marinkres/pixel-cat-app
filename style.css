@@ -8,84 +8,91 @@
     padding: 0 10px;
     -webkit-app-region: drag;
     border-bottom: 2px solid #000;
-  }
-  
-  .title-bar-text {
-    font-family: "PixelFont", sans-serif;
+}
+
+.title-bar-text {
+    font-family: 'PixelFont', sans-serif;
     font-size: 16px;
     color: #fff;
     image-rendering: pixelated;
-  }
-  
-  .title-bar-controls {
+}
+
+.title-bar-controls {
     display: flex;
     gap: 5px;
     -webkit-app-region: no-drag;
-  }
-  
-  .pixel-button {
+}
+
+.pixel-button {
     width: 20px;
     height: 20px;
     background-color: #555;
     border: 2px solid #000;
     color: #fff;
-    font-family: "PixelFont", sans-serif;
+    font-family: 'PixelFont', sans-serif;
     font-size: 14px;
     image-rendering: pixelated;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .pixel-button:hover {
+}
+
+.pixel-button:hover {
     background-color: #777;
-  }
-  
-  /* Main Content */
-  body {
+}
+
+/* Main Content */
+body {
     margin: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: #000;
-  }
-  
-  .background-container {
+}
+
+.background-container {
     flex: 1;
-    background-image: url("assets/background.png");
+    background-image: url('assets/background.png');
     background-size: cover;
     background-position: center;
     position: relative;
     image-rendering: pixelated;
-    transition: background-image 0.5s ease; /* Add smooth transition */
-  }
-  
-  .cats-container {
+    transition: background-image 0.5s ease;
+}
+
+/* Cats Container */
+.cats-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    gap: 10px; /* Adjust this value to set the space between cats */
-  }
-  
-  .cat-container {
+    gap: 0px; /* No spacing between cats */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Cat Container */
+.cat-container {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  #cat,
-  .new-cat {
-    width: 164px;
-    height: 164px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Cat Images */
+#cat,
+.new-cat {
+    width: 150px;
+    height: 150px;
     image-rendering: pixelated;
-  }
-  
-  /* New Bottom Buttons */
-  .bottom-buttons {
+}
+
+/* Bottom Buttons */
+.bottom-buttons {
     position: absolute;
     bottom: 50px;
     left: 50%;
@@ -93,28 +100,26 @@
     display: flex;
     justify-content: center;
     gap: 100px;
-  }
-  
-  .bottom-btn {
+}
+
+.bottom-btn {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     transition: transform 0.1s ease;
-  }
-  
-  .bottom-btn img {
-    width: 100px; /* Adjust based on your pixel art size */
-    height: 50px; /* Adjust based on your pixel art size */
+}
+
+.bottom-btn img {
+    width: 100px;
+    height: 50px;
     image-rendering: pixelated;
-  }
-  
-  .bottom-btn:hover {
+}
+
+.bottom-btn:hover {
     transform: scale(1.1);
-  }
-  
-  .bottom-btn:active {
+}
+
+.bottom-btn:active {
     transform: scale(0.9);
-  }
-  
-  
+}
