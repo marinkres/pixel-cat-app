@@ -1,6 +1,6 @@
 /* Custom Title Bar */
 .title-bar {
-    height: 30px;
+    height: 40px;
     background-color: #7e0083;
     display: flex;
     align-items: center;
@@ -24,8 +24,8 @@
 }
 
 .pixel-button {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-color: #555;
     border: 2px solid #000;
     color: #fff;
@@ -146,24 +146,25 @@ body {
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 20px; /* Reduced gap for better spacing */
 }
 
 .bottom-btn {
-    background: none;
-    border: none;
-    padding: 0;
+    background-color: #000; /* Black background */
+    border: 2px solid #fff; /* White border */
+    color: #fff; /* White text */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    padding: 10px 20px; /* Padding for better button size */
     cursor: pointer;
     transition: transform 0.1s ease;
-}
-
-.bottom-btn img {
-    width: 100px;
-    height: 50px;
     image-rendering: pixelated;
+    width: 80px;
+    height: 30px;
 }
 
 .bottom-btn:hover {
+    background-color: #333; /* Darker background on hover */
     transform: scale(1.1);
 }
 
