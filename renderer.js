@@ -6,6 +6,7 @@ const elements = {
     resetBtn: document.getElementById('reset-btn'),
     playBtn: document.getElementById('play-btn'),
     smokeBtn: document.getElementById('smoke-btn'),
+    sleepBtn: document.getElementById('sleep-btn'),
     gameBtn: document.getElementById('game-btn'),
     backgroundContainer: document.getElementById('background-container'),
     catsContainer: document.querySelector('.cats-container'),
@@ -131,6 +132,7 @@ const elements = {
     elements.feedBtn.style.display = 'none';
     elements.playBtn.style.display = 'none';
     elements.smokeBtn.style.display = 'none';
+    elements.sleepBtn.style.display = 'none';
     elements.gameBtn.style.display = 'none';
     elements.resetBtn.style.display = 'block';
   });
@@ -174,6 +176,17 @@ const elements = {
     elements.gameBtn.style.display = 'none';
     typeText("Marin: Wtf di su nam cigare... Lorena: Sta wtfaris aloo???", elements.textContent);
   });
+  // Sleep Button
+  elements.sleepBtn.addEventListener('click', () => {
+    changeBackground('assets/background7.webp');
+    const originalCat = document.getElementById('cat');
+    if (originalCat) {
+      originalCat.parentElement.remove();
+    }
+  
+    elements.gameBtn.style.display = 'none';
+    typeText("Zzzz...", elements.textContent);
+  });
   
   // Game Button
   elements.gameBtn.addEventListener('click', () => {
@@ -185,6 +198,7 @@ const elements = {
     elements.feedBtn.style.display = 'none';
     elements.playBtn.style.display = 'none';
     elements.smokeBtn.style.display = 'none';
+    elements.sleepBtn.style.display = 'none';
     elements.gameBtn.style.display = 'none';
   
     // If game container doesn't exist, create it
@@ -492,6 +506,7 @@ const elements = {
     elements.feedBtn.style.display = 'block';
     elements.playBtn.style.display = 'block';
     elements.smokeBtn.style.display = 'block';
+    elements.sleepBtn.style.display = 'block';
     elements.gameBtn.style.display = 'block';
     elements.resetBtn.style.display = 'block';
   
