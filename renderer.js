@@ -5,6 +5,7 @@ const elements = {
   feedBtn: document.getElementById('feed-btn'),
   resetBtn: document.getElementById('reset-btn'),
   playBtn: document.getElementById('play-btn'),
+  smokeBtn: document.getElementById('smoke-btn'),
   gameBtn: document.getElementById('game-btn'),
   backgroundContainer: document.getElementById('background-container'),
   catsContainer: document.querySelector('.cats-container'),
@@ -125,6 +126,7 @@ elements.okBtn.addEventListener('click', () => {
     
     elements.feedBtn.style.display = 'none';
     elements.playBtn.style.display = 'none';
+    elements.smokeBtn.style.display = 'none';
     elements.gameBtn.style.display = 'none';
     elements.resetBtn.style.display = 'block';
 });
@@ -155,6 +157,19 @@ elements.playBtn.addEventListener('click', () => {
     audioElements.waterSound.currentTime = 0;
     audioElements.waterSound.play();
 });
+// Smoke Button
+elements.smokeBtn.addEventListener('click', () => {
+    changeBackground('assets/background5.webp');
+    const originalCat = document.getElementById('cat');
+    if (originalCat) {
+        originalCat.parentElement.remove();
+    }
+    spawnSkinkerCat();
+
+    elements.gameBtn.style.display = 'none';
+    typeText("Marin: Wtf di su nam cigare... Lorena: Sta wtfaris aloo???", elements.textContent);
+
+});
 
 // Game Button
 elements.gameBtn.addEventListener('click', () => {
@@ -166,6 +181,7 @@ elements.gameBtn.addEventListener('click', () => {
     // Hide bottom buttons except reset
     elements.feedBtn.style.display = 'none';
     elements.playBtn.style.display = 'none';
+    elements.smokeBtn.style.display = 'none';
     elements.gameBtn.style.display = 'none';
     // If game container doesn't exist, create it
     if (!gameContainer) {
@@ -187,7 +203,7 @@ elements.gameBtn.addEventListener('click', () => {
                 Score: <span id="score">0</span> <br> Time: <span id="time">30</span>
             </div>
             <div id="start-screen" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; font-family: 'Press Start 2P', cursive;">
-                <h2 style="text-shadow: 2px 2px 4px black;">Catch Hearts!</h2>
+                <h2 style="text-shadow: 2px 2px 4px black;">Vataj!</h2>
                 <button id="start-button" style="background: #89cff0; border: 2px solid white; color: white; padding: 10px 20px; margin-top: 20px; cursor: pointer; font-family: 'Press Start 2P', cursive;">Start Game</button>
             </div>
         </div>`;
@@ -478,6 +494,7 @@ function resetApp() {
 
     elements.feedBtn.style.display = 'block';
     elements.playBtn.style.display = 'block';
+    elements.smokeBtn.style.display = 'block';
     elements.gameBtn.style.display = 'block';
     elements.resetBtn.style.display = 'block';
 
