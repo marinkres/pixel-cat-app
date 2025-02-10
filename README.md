@@ -6,8 +6,8 @@ Welcome to Matze, a fun pixel-art game created as a special gift for my girlfrie
 
 ## Demo
 
-<img src="https://github.com/user-attachments/assets/72bd202c-e649-4133-b75c-31226fd3e9ec" width="200"/>
-<img src="https://github.com/user-attachments/assets/c79f12e5-b851-4836-a38e-f0600842fe43" width="200"/>
+<img src="https://github.com/user-attachments/assets/72bd202c-e649-4133-b75c-31226fd3e9ec" width="300"/>
+<img src="https://github.com/user-attachments/assets/c79f12e5-b851-4836-a38e-f0600842fe43" width="300"/>
 
 
 
