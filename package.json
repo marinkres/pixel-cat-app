@@ -1,13 +1,15 @@
 {
+  "type": "module",
   "name": "lorena",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "optimize-images": "node optimize.js",
-    "prestart": "npm run optimize-images",
+    
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run optimize-images && electron-builder"
+    "build": "npm run optimize-images && electron-builder",
+    "postinstall": "rimraf node_modules/electron/dist/resources/default_app.asar"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +20,17 @@
     "electron-builder": "^25.1.8"
   },
   "build": {
-    "icon": "assets/icon.png"
+    "icon": "assets/icon.png",
+    "compression": "maximum",
+    "asar": true,
+    "files": [
+      "!node_modules/.cache",
+      "!node_modules/*/test",
+      "!node_modules/*/examples",
+      "!src",
+      "!README.md"
+  ]
+    
   },
   "dependencies": {
     "imagemin": "^9.0.0",

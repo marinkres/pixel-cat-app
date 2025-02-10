@@ -1,5 +1,10 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
+import { app, BrowserWindow, ipcMain } from 'electron';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Fix __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let mainWindow;
 
@@ -9,7 +14,7 @@ function createWindow() {
     height: 650,
     icon: path.join(__dirname, 'assets', 'icon.png'),
     resizable: false,
-    frame: false, // Disable the default title bar
+    frame: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -19,15 +24,12 @@ function createWindow() {
 
   mainWindow.loadFile('index.html');
 
-  // Open DevTools (optional, for debugging)
-  // mainWindow.webContents.openDevTools();
-
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
 }
 
-app.on('ready', createWindow);
+app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

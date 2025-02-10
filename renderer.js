@@ -133,13 +133,13 @@ elements.gameBtn.addEventListener('click', () => {
         
         // Add the game HTML
         gameContainer.innerHTML = `<div id="game-container" style="width: 100%; height: 100%; position: relative;">
-            <canvas id="gameCanvas" style="background: rgba(37, 37, 37, 0.8);"></canvas>
-            <div id="game-ui" style="position: absolute; top: 10px; left: 10px; color: white; font-family: 'Press Start 2P', cursive;">
-                Score: <span id="score">0</span> | Time: <span id="time">30</span>
+            <canvas id="gameCanvas"></canvas>
+            <div id="game-ui" style="background: rgba(0, 0, 0, 0.8); position: absolute; top: 10px; left: 10px; color: white; font-family: 'Press Start 2P', cursive;">
+                Score: <span id="score">0</span> <br> Time: <span id="time">30</span>
             </div>
             <div id="start-screen" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; font-family: 'Press Start 2P', cursive;">
-                <h2>Catch Hearts for Lorena!</h2>
-                <button id="start-button" style="background: #8c0099; border: 2px solid white; color: white; padding: 10px 20px; margin-top: 20px; cursor: pointer; font-family: 'Press Start 2P', cursive;">Start Game</button>
+                <h2 style="text-shadow: 2px 2px 4px black;">Catch Hearts!</h2>
+                <button id="start-button" style="background: #89cff0; border: 2px solid white; color: white; padding: 10px 20px; margin-top: 20px; cursor: pointer; font-family: 'Press Start 2P', cursive;">Start Game</button>
             </div>
         </div>`;
         
@@ -253,9 +253,9 @@ function initializeGame() {
     function endGame() {
         startScreen.style.display = 'block';
         startScreen.innerHTML = `
-            <h2>Game Over!</h2>
-            <p style="margin: 20px 0;">Final Score: ${score}</p>
-            <button id="restart-button" style="background: #8c0099; border: 2px solid white; color: white; padding: 10px 20px; margin-top: 20px; cursor: pointer; font-family: 'Press Start 2P', cursive;">Play Again</button>
+            <h2 style="text-shadow: 2px 2px 4px black;">Game Over!</h2>
+            <p style="margin: 20px 0; text-shadow: 2px 2px 4px black;">Final Score: ${score}</p>
+            <button id="restart-button" style="text-shadow: 2px 2px 4px black; background: #89cff0; border: 2px solid white; color: white; padding: 10px 20px; margin-top: 20px; cursor: pointer; font-family: 'Press Start 2P', cursive;">Play Again</button>
         `;
         
         document.getElementById('restart-button').addEventListener('click', (e) => {

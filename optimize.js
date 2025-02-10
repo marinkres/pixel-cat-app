@@ -1,14 +1,14 @@
-const imagemin = require('imagemin');
-const imageminPngquant = require('imagemin-pngquant');
-const imageminOptipng = require('imagemin-optipng');
+import imagemin from 'imagemin';
+import imageminPngquant from 'imagemin-pngquant';
+import imageminOptipng from 'imagemin-optipng';
 
 (async () => {
     await imagemin(['assets/*.png'], {
-        destination: 'assets', // Overwrite original images
+        destination: 'assets',
         plugins: [
             imageminPngquant({ quality: [0.65, 0.8] }),
             imageminOptipng({ optimizationLevel: 7 })
         ]
     });
-    console.log('Images optimized and replaced.');
+    console.log('Images optimized');
 })();

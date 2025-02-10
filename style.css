@@ -2,7 +2,7 @@
 /* Custom Title Bar */
 .title-bar {
     height: 40px;
-    background-color: #8c0099;
+    background-color: #89cff0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -153,25 +153,29 @@ body {
 }
 
 .bottom-btn {
-    background-color: #8c0099;
-    border: 2px solid #fff;
+    background-color: transparent;
+    border: none;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    padding: 10px 20px;
+    font-size: 34px;
+    padding: 5px 5px; /* Adjust padding for better alignment */
     cursor: pointer;
     transition: transform 0.1s ease;
     image-rendering: pixelated;
-    width: 90px;
+    width: auto; /* Allow the width to be dynamic */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
     height: 40px;
+    box-sizing: border-box; /* Include padding in height */
+    word-wrap: break-word;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px black;
 }
 
 .bottom-btn:hover {
-    background-color: #b313c2;
-    transform: scale(1.1);
+    background-color: transparent;
+    transform: scale(1.5);
 }
 
 .bottom-btn:active {
