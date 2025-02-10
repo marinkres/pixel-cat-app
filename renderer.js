@@ -1,46 +1,47 @@
-const minimizeBtn = document.getElementById('minimize-btn');
-const closeBtn = document.getElementById('close-btn');
-const feedBtn = document.getElementById('feed-btn');
-const resetBtn = document.getElementById('reset-btn');
-const playBtn = document.getElementById('play-btn');
-const gameBtn = document.getElementById('game-btn');
-const backgroundContainer = document.getElementById('background-container');
-const catsContainer = document.querySelector('.cats-container');
-const textContainer = document.getElementById('text-container');
-const textContent = document.getElementById('text-content');
-const blinkingCursor = document.getElementById('blinking-cursor');
-const okBtn = document.getElementById('ok-btn');
-const bottomButtons = document.getElementById('bottom-buttons');
+// Cache DOM lookups
+const elements = {
+  minimizeBtn: document.getElementById('minimize-btn'),
+  closeBtn: document.getElementById('close-btn'),
+  feedBtn: document.getElementById('feed-btn'),
+  resetBtn: document.getElementById('reset-btn'),
+  playBtn: document.getElementById('play-btn'),
+  gameBtn: document.getElementById('game-btn'),
+  backgroundContainer: document.getElementById('background-container'),
+  catsContainer: document.querySelector('.cats-container'),
+  textContainer: document.getElementById('text-container'),
+  textContent: document.getElementById('text-content'),
+  blinkingCursor: document.getElementById('blinking-cursor'),
+  okBtn: document.getElementById('ok-btn'),
+  bottomButtons: document.getElementById('bottom-buttons')
+};
 
 let gameContainer = null;
 
-// Background Music
-const backgroundMusic = new Audio('assets/background-music.mp3');
-backgroundMusic.loop = true;
-backgroundMusic.volume = 0.5;
+// Audio elements
+const audioElements = {
+  backgroundMusic: new Audio('assets/background-music.mp3'),
+  clickSound: new Audio('assets/lamp.mp3'),
+  meowSound: new Audio('assets/meow.mp3'),
+  waterSound: new Audio('assets/water.mp3')
+};
 
-// Click Sound
-const clickSound = new Audio('assets/lamp.mp3');
-clickSound.volume = 0.7;
-
-// Meow Sound
-const meowSound = new Audio('assets/meow.mp3');
-meowSound.volume = 0.7;
-
-// Water Sound
-const waterSound = new Audio('assets/water.mp3');
-waterSound.volume = 0.7;
+// Configure audio elements
+audioElements.backgroundMusic.loop = true;
+audioElements.backgroundMusic.volume = 0.5;
+audioElements.clickSound.volume = 0.7;
+audioElements.meowSound.volume = 0.7;
+audioElements.waterSound.volume = 0.7;
 
 window.addEventListener('DOMContentLoaded', () => {
-    backgroundMusic.play().catch(err => console.error("Music playback failed:", err));
+    audioElements.backgroundMusic.play().catch(err => console.error("Music playback failed:", err));
 });
 
 // Title Bar Controls
-minimizeBtn.addEventListener('click', () => {
+elements.minimizeBtn.addEventListener('click', () => {
     window.electronAPI.minimizeWindow();
 });
 
-closeBtn.addEventListener('click', () => {
+elements.closeBtn.addEventListener('click', () => {
     window.electronAPI.closeWindow();
 });
 
@@ -48,9 +49,9 @@ closeBtn.addEventListener('click', () => {
 function typeText(text, element, speed = 50) {
     let i = 0;
     element.textContent = '';
-    textContainer.style.display = 'block';
-    bottomButtons.style.display = 'none';
-    okBtn.style.display = 'none';
+    elements.textContainer.style.display = 'block';
+    elements.bottomButtons.style.display = 'none';
+    elements.okBtn.style.display = 'none';
 
     function type() {
         if (i < text.length) {
@@ -58,40 +59,40 @@ function typeText(text, element, speed = 50) {
             i++;
             setTimeout(type, speed);
         } else {
-            blinkingCursor.style.display = 'inline';
-            okBtn.style.display = 'block';
+            elements.blinkingCursor.style.display = 'inline';
+            elements.okBtn.style.display = 'block';
         }
     }
     type();
 }
 
 // OK Button
-okBtn.addEventListener('click', () => {
-    textContainer.style.display = 'none';
-    bottomButtons.style.display = 'flex';
-    textContent.textContent = '';
-    blinkingCursor.style.display = 'none';
-    okBtn.style.display = 'none';
+elements.okBtn.addEventListener('click', () => {
+    elements.textContainer.style.display = 'none';
+    elements.bottomButtons.style.display = 'flex';
+    elements.textContent.textContent = '';
+    elements.blinkingCursor.style.display = 'none';
+    elements.okBtn.style.display = 'none';
     
-    feedBtn.style.display = 'none';
-    playBtn.style.display = 'none';
-    gameBtn.style.display = 'none';
-    resetBtn.style.display = 'block';
+    elements.feedBtn.style.display = 'none';
+    elements.playBtn.style.display = 'none';
+    elements.gameBtn.style.display = 'none';
+    elements.resetBtn.style.display = 'block';
 });
 
 // Feed Button
-feedBtn.addEventListener('click', () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
+elements.feedBtn.addEventListener('click', () => {
+    audioElements.clickSound.currentTime = 0;
+    audioElements.clickSound.play();
     
     changeBackground('assets/background2.png');
     spawnNewCat();
-    gameBtn.style.display = 'none';
-    typeText("Lorena: Ocu sushi seksa mi se...", textContent);
+    elements.gameBtn.style.display = 'none';
+    typeText("Lorena: Ocu sushi seksa mi se...", elements.textContent);
 });
 
 // Play Button
-playBtn.addEventListener('click', () => {
+elements.playBtn.addEventListener('click', () => {
     changeBackground('assets/background3.png');
     const originalCat = document.getElementById('cat');
     if (originalCat) {
@@ -99,24 +100,24 @@ playBtn.addEventListener('click', () => {
     }
     spawnSkinkerCat();
 
-    gameBtn.style.display = 'none';
-    typeText("Lorena: Ubicuse...", textContent);
+    elements.gameBtn.style.display = 'none';
+    typeText("Lorena: Ubicuse...", elements.textContent);
 
-    waterSound.currentTime = 0;
-    waterSound.play();
+    audioElements.waterSound.currentTime = 0;
+    audioElements.waterSound.play();
 });
 
 // Game Button
-gameBtn.addEventListener('click', () => {
+elements.gameBtn.addEventListener('click', () => {
     
     // Hide cats
     const cats = document.querySelectorAll('.cat-container');
     cats.forEach(cat => cat.style.display = 'none');
     
     // Hide bottom buttons except reset
-    feedBtn.style.display = 'none';
-    playBtn.style.display = 'none';
-    gameBtn.style.display = 'none';
+    elements.feedBtn.style.display = 'none';
+    elements.playBtn.style.display = 'none';
+    elements.gameBtn.style.display = 'none';
     // If game container doesn't exist, create it
     if (!gameContainer) {
         gameContainer = document.createElement('div');
@@ -142,7 +143,7 @@ gameBtn.addEventListener('click', () => {
             </div>
         </div>`;
         
-        backgroundContainer.appendChild(gameContainer);
+        elements.backgroundContainer.appendChild(gameContainer);
 
         // Initialize game after adding to DOM
         initializeGame();
@@ -314,12 +315,12 @@ function initializeGame() {
 }
 
 // Reset Button
-resetBtn.addEventListener('click', () => {
+elements.resetBtn.addEventListener('click', () => {
     resetApp();
 });
 
 function changeBackground(newBackgroundPath) {
-    backgroundContainer.style.backgroundImage = `url('${newBackgroundPath}')`;
+    elements.backgroundContainer.style.backgroundImage = `url('${newBackgroundPath}')`;
 }
 
 function spawnCat(catClass, catSrc, catAlt, animateFunction) {
@@ -336,12 +337,12 @@ function spawnCat(catClass, catSrc, catAlt, animateFunction) {
         catContainer.style.padding = "0px";
         
         catContainer.appendChild(cat);
-        catsContainer.appendChild(catContainer);
+        elements.catsContainer.appendChild(catContainer);
         animateFunction(cat);
 
         cat.addEventListener('click', () => {
-            meowSound.currentTime = 0;
-            meowSound.play();
+            audioElements.meowSound.currentTime = 0;
+            audioElements.meowSound.play();
         });
     }
 }
@@ -360,15 +361,15 @@ function spawnSkinkerCat() {
 
         skinkerCat.removeEventListener('click', playMeowSound);
         skinkerCat.addEventListener('click', () => {
-            waterSound.currentTime = 0;
-            waterSound.play();
+            audioElements.waterSound.currentTime = 0;
+            audioElements.waterSound.play();
         });
     }
 }
 
 function playMeowSound() {
-    meowSound.currentTime = 0;
-    meowSound.play();
+    audioElements.meowSound.currentTime = 0;
+    audioElements.meowSound.play();
 }
 
 // Add a variable to track game state
@@ -415,9 +416,9 @@ function resetApp() {
         cat.parentElement.remove();
     });
 
-    catsContainer.style.gap = "0px"; 
+    elements.catsContainer.style.gap = "0px"; 
 
-    catsContainer.innerHTML = `
+    elements.catsContainer.innerHTML = `
         <div class="cat-container">
             <img id="cat" src="assets/pixil-frame-0.png" alt="Pixel Cat">
         </div>
@@ -426,24 +427,24 @@ function resetApp() {
     const cats = document.querySelectorAll('.cat-container');
     cats.forEach(cat => cat.style.display = 'block');
 
-    feedBtn.style.display = 'block';
-    playBtn.style.display = 'block';
-    gameBtn.style.display = 'block';
-    resetBtn.style.display = 'block';
+    elements.feedBtn.style.display = 'block';
+    elements.playBtn.style.display = 'block';
+    elements.gameBtn.style.display = 'block';
+    elements.resetBtn.style.display = 'block';
 
-    textContainer.style.display = 'none';
-    textContent.textContent = '';
-    blinkingCursor.style.display = 'none';
+    elements.textContainer.style.display = 'none';
+    elements.textContent.textContent = '';
+    elements.blinkingCursor.style.display = 'none';
 
-    bottomButtons.style.display = 'flex';
+    elements.bottomButtons.style.display = 'flex';
 
     setTimeout(() => {
         const cat = document.getElementById('cat');
         animateCat(cat);
 
         cat.addEventListener('click', () => {
-            meowSound.currentTime = 0;
-            meowSound.play();
+            audioElements.meowSound.currentTime = 0;
+            audioElements.meowSound.play();
         });
     }, 100);
 }
@@ -497,20 +498,32 @@ function animateSkinkerCat(skinkerCat) {
         'assets/skinker2.png'
     ];
     const frameRate = 400;
+    const frameDuration = 1000 / (1000 / frameRate);
 
-    function animate() {
-        skinkerCat.src = skinkerFrames[skinkerFrame];
-        skinkerFrame = (skinkerFrame + 1) % skinkerFrames.length;
-        setTimeout(animate, frameRate);
+    // Preload images
+    skinkerFrames.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    let lastFrameTime = performance.now();
+
+    function animate(currentTime) {
+        if (currentTime - lastFrameTime >= frameDuration) {
+            skinkerCat.src = skinkerFrames[skinkerFrame];
+            skinkerFrame = (skinkerFrame + 1) % skinkerFrames.length;
+            lastFrameTime = currentTime;
+        }
+        requestAnimationFrame(animate);
     }
 
-    animate();
+    requestAnimationFrame(animate);
 }
 
 animateCat();
 
 const mainCat = document.getElementById('cat');
 mainCat.addEventListener('click', () => {
-    meowSound.currentTime = 0;
-    meowSound.play();
+    audioElements.meowSound.currentTime = 0;
+    audioElements.meowSound.play();
 });
