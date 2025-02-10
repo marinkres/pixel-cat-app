@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "optimize-images": "node optimize.js",
+    "prestart": "npm run optimize-images",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-builder"
+    "build": "npm run optimize-images && electron-builder"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +19,10 @@
   },
   "build": {
     "icon": "assets/icon.png"
+  },
+  "dependencies": {
+    "imagemin": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-pngquant": "^10.0.0"
   }
 }

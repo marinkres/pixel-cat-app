@@ -4,11 +4,11 @@ const imageminOptipng = require('imagemin-optipng');
 
 (async () => {
     await imagemin(['assets/*.png'], {
-        destination: 'assets/optimized',
+        destination: 'assets', // Overwrite original images
         plugins: [
             imageminPngquant({ quality: [0.65, 0.8] }),
             imageminOptipng({ optimizationLevel: 7 })
         ]
     });
-    console.log('Images optimized');
+    console.log('Images optimized and replaced.');
 })();
