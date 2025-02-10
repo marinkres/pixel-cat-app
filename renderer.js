@@ -22,7 +22,8 @@ const audioElements = {
   backgroundMusic: new Audio('assets/background-music.mp3'),
   clickSound: new Audio('assets/lamp.mp3'),
   meowSound: new Audio('assets/meow.mp3'),
-  waterSound: new Audio('assets/water.mp3')
+  waterSound: new Audio('assets/water.mp3'),
+  doorbellSound: new Audio('assets/doorbell.mp3')
 };
 
 // Configure audio elements
@@ -31,9 +32,57 @@ audioElements.backgroundMusic.volume = 0.5;
 audioElements.clickSound.volume = 0.7;
 audioElements.meowSound.volume = 0.7;
 audioElements.waterSound.volume = 0.7;
+audioElements.doorbellSound.volume = 0.7;
+// Add a new variable to track if we're on the main menu
+let isMainMenu = true
+
+// Function to show main menu
+function showMainMenu() {
+    isMainMenu = true
+    changeBackground("assets/background4.webp")
+    elements.catsContainer.style.display = "none"
+    elements.bottomButtons.style.display = "none"
+  
+    // Create main menu elements if they don't exist
+    if (!document.getElementById("main-menu")) {
+      const mainMenu = document.createElement("div")
+      mainMenu.id = "main-menu"
+      mainMenu.style.position = "absolute"
+      mainMenu.style.top = "50%"
+      mainMenu.style.left = "50%"
+      mainMenu.style.transform = "translate(-50%, -50%)"
+      mainMenu.style.textAlign = "center"
+      mainMenu.innerHTML = `
+              <h1 style="font-family: 'Press Start 2P', cursive; font-size: 36px; color: #fff; margin-bottom: 30px; text-shadow: 2px 2px 4px #000;">Malesnica Simulator</h1>
+              <button id="start-game-btn" style="font-family: 'Press Start 2P', cursive; font-size: 24px; padding: 15px 30px; background-color: #89cff0; color: #fff; border: none; cursor: pointer; text-shadow: 1px 1px 2px #000;">Pozvoni</button>
+          `
+      elements.backgroundContainer.appendChild(mainMenu)
+  
+      // Add event listener to the start game button
+      document.getElementById("start-game-btn").addEventListener("click", function() {
+        audioElements.doorbellSound.currentTime = 0;
+        audioElements.doorbellSound.play();  // Play doorbell sound
+        startGame();  // Call start game function
+      })
+    } else {
+      document.getElementById("main-menu").style.display = "block"
+    }
+  }
+  
+
+// Function to start the game
+function startGame() {
+  isMainMenu = false
+  document.getElementById("main-menu").style.display = "none"
+  changeBackground("assets/background.png")
+  elements.catsContainer.style.display = "flex"
+  elements.bottomButtons.style.display = "flex"
+  resetApp()
+}
 
 window.addEventListener('DOMContentLoaded', () => {
     audioElements.backgroundMusic.play().catch(err => console.error("Music playback failed:", err));
+    showMainMenu()
 });
 
 // Title Bar Controls
