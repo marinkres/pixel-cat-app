@@ -7,6 +7,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 600,
     height: 650,
+    icon: path.join(__dirname, 'assets', 'icon.png'),
     resizable: false,
     frame: false, // Disable the default title bar
     webPreferences: {
