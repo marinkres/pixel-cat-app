@@ -1,7 +1,7 @@
 {
   "type": "module",
-  "name": "lorena",
-  "version": "1.0.0",
+  "name": "lorena2",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "optimize-images": "node optimize.js",
