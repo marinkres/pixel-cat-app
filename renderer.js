@@ -60,8 +60,8 @@ const elements = {
       mainMenu.style.transform = "translate(-50%, -50%)";
       mainMenu.style.textAlign = "center";
       mainMenu.innerHTML = `
-        <h1 style="font-family: 'Press Start 2P', cursive; font-size: 36px; color: #fff; margin-bottom: 30px; text-shadow: 2px 2px 4px #000;">Malesnica Simulator</h1>
-        <button id="start-game-btn" style="font-family: 'Press Start 2P', cursive; font-size: 24px; padding: 15px 30px; background-color: #89cff0; color: #fff; border: none; cursor: pointer; text-shadow: 1px 1px 2px #000;">Pozvoni</button>
+        <h1 style="font-family: 'Press Start 2P', cursive; font-size: 36px; color: #fff; margin-bottom: 30px; text-shadow: 2px 2px 4px #000;">Matze Simulator</h1>
+        <button id="start-game-btn" style="font-family: 'Press Start 2P', cursive; font-size: 24px; padding: 15px 30px; background-color: #89cff0; color: #fff; border: none; cursor: pointer; text-shadow: 1px 1px 2px #000;">Enter</button>
       `;
       elements.backgroundContainer.appendChild(mainMenu);
   
@@ -145,7 +145,7 @@ const elements = {
     changeBackground('assets/background2.png');
     spawnNewCat();
     elements.gameBtn.style.display = 'none';
-    typeText("Lorena: Ocu sushi seksa mi se...", elements.textContent);
+    typeText("I want sushi...", elements.textContent);
   });
   
   // Play Button
@@ -158,7 +158,7 @@ const elements = {
     spawnSkinkerCat();
   
     elements.gameBtn.style.display = 'none';
-    typeText("Lorena: Ubicuse...", elements.textContent);
+    typeText("Where is my moisturizer...", elements.textContent);
   
     audioElements.waterSound.currentTime = 0;
     audioElements.waterSound.play();
@@ -174,7 +174,7 @@ const elements = {
     spawnSkinkerCat();
   
     elements.gameBtn.style.display = 'none';
-    typeText("Marin: Wtf di su nam cigare... Lorena: Sta wtfaris aloo???", elements.textContent);
+    typeText("Puff puff...", elements.textContent);
   });
   // Sleep Button
   elements.sleepBtn.addEventListener('click', () => {
