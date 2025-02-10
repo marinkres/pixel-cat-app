@@ -150,37 +150,47 @@ body {
     justify-content: center;
     gap: 20px;
     min-width: 300px;
-}
-
-.bottom-btn {
+  }
+  
+  .bottom-btn {
     background-color: transparent;
     border: none;
     color: #fff;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 34px;
-    padding: 5px 5px; /* Adjust padding for better alignment */
     cursor: pointer;
     transition: transform 0.1s ease;
     image-rendering: pixelated;
-    width: auto; /* Allow the width to be dynamic */
+    width: 60px; /* Set a fixed width */
+    height: 60px; /* Set a fixed height */
     display: flex;
-    align-items: center; /* Vertical centering */
-    justify-content: center; /* Horizontal centering */
-    height: 40px;
-    box-sizing: border-box; /* Include padding in height */
-    word-wrap: break-word;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove padding */
+    box-sizing: border-box;
     overflow: hidden;
     text-shadow: 2px 2px 4px black;
-}
-
-.bottom-btn:hover {
+  }
+  
+  .bottom-btn:hover {
     background-color: transparent;
     transform: scale(1.5);
-}
-
-.bottom-btn:active {
+  }
+  
+  .bottom-btn:active {
     transform: scale(0.9);
-}
+  }
+  
+  /* Ensure emojis are centered and not cut off */
+  .bottom-btn span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 34px; /* Adjust if needed */
+    line-height: 1;
+  }
 
 #cat,
 .new-cat,
@@ -193,4 +203,9 @@ body {
 
 .cat-container {
     pointer-events: auto;
+}
+
+.ok-bttn {
+    height: 35px;
+    width: 60px;
 }
