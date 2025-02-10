@@ -252,7 +252,7 @@ function animateSkinkerCat(skinkerCat) {
         'assets/skinker1.png',
         'assets/skinker2.png'
     ];
-    const frameRate = 200;
+    const frameRate = 400;
 
     function animate() {
         skinkerCat.src = skinkerFrames[skinkerFrame];
