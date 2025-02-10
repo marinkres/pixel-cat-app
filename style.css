@@ -9,22 +9,22 @@
     padding: 0 10px;
     -webkit-app-region: drag;
     border-bottom: 2px solid #000;
-}
-
-.title-bar-text {
+  }
+  
+  .title-bar-text {
     font-family: 'Press Start 2P', cursive;
     font-size: 16px;
     color: #fff;
     image-rendering: pixelated;
-}
-
-.title-bar-controls {
+  }
+  
+  .title-bar-controls {
     display: flex;
     gap: 5px;
     -webkit-app-region: no-drag;
-}
-
-.pixel-button {
+  }
+  
+  .pixel-button {
     width: 25px;
     height: 25px;
     background-color: #555;
@@ -37,22 +37,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.pixel-button:hover {
+  }
+  
+  .pixel-button:hover {
     background-color: #777;
-}
-
-body {
+  }
+  
+  body {
     margin: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: #000;
-}
-
-.background-container {
+  }
+  
+  .background-container {
     flex: 1;
     background-image: url('assets/background.png');
     background-size: cover;
@@ -60,9 +60,9 @@ body {
     position: relative;
     image-rendering: pixelated;
     transition: background-image 0.5s ease;
-}
-
-.text-container {
+  }
+  
+  .text-container {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -82,19 +82,19 @@ body {
     display: none;
     box-sizing: border-box;
     word-wrap: break-word;
-}
-
-#blinking-cursor {
+  }
+  
+  #blinking-cursor {
     animation: blink 1s steps(2, start) infinite;
-}
-
-@keyframes blink {
+  }
+  
+  @keyframes blink {
     to {
-        visibility: hidden;
+      visibility: hidden;
     }
-}
-
-#ok-btn {
+  }
+  
+  #ok-btn {
     margin-top: 10px;
     background-color: #000;
     border: 2px solid #fff;
@@ -104,18 +104,18 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     transition: transform 0.1s ease;
-}
-
-#ok-btn:hover {
+  }
+  
+  #ok-btn:hover {
     background-color: #333;
     transform: scale(1.1);
-}
-
-#ok-btn:active {
+  }
+  
+  #ok-btn:active {
     transform: scale(0.9);
-}
-
-.cats-container {
+  }
+  
+  .cats-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -124,24 +124,24 @@ body {
     gap: 0px;
     justify-content: center;
     align-items: center;
-}
-
-.cat-container {
+  }
+  
+  .cat-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0px;
     margin: 0px;
-}
-
-#cat,
-.new-cat {
+  }
+  
+  #cat,
+  .new-cat {
     width: 150px;
     height: 150px;
     image-rendering: pixelated;
-}
-
-.bottom-buttons {
+  }
+  
+  .bottom-buttons {
     position: absolute;
     bottom: 50px;
     left: 50%;
@@ -191,21 +191,54 @@ body {
     font-size: 34px; /* Adjust if needed */
     line-height: 1;
   }
-
-#cat,
-.new-cat,
-.text-container {
+  
+  #cat,
+  .new-cat,
+  .text-container {
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-}
-
-.cat-container {
+  }
+  
+  .cat-container {
     pointer-events: auto;
-}
-
-.ok-bttn {
+  }
+  
+  .ok-bttn {
     height: 35px;
     width: 60px;
-}
+  }
+  
+  /* Settings Menu */
+  .settings-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #89cff0;
+    border: 2px solid #fff;
+    padding: 20px;
+    display: none;
+    z-index: 1000;
+    text-align: center;
+  }
+  
+  .settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .settings-menu h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  #mute-btn, #exit-btn {
+    width: 150px;
+    height: 40px;
+    font-size: 14px;
+  }
