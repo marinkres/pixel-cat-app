@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "optimize-images": "node optimize.js",
-    
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run optimize-images && electron-builder",
@@ -20,26 +19,25 @@
     "electron-builder": "^25.1.8"
   },
   "build": {
-  "icon": "assets/icon.png",
-  "compression": "maximum",
-  "asar": true,
-  "files": [
-    "!node_modules/.cache",
-    "!node_modules/*/test",
-    "!node_modules/*/examples",
-    "!src",
-    "!README.md"
-  ],
-  "mac": {
-    "target": [
-      "dmg",
-      "zip"
+    "icon": "assets/icon.png",
+    "compression": "maximum",
+    "asar": true,
+    "files": [
+      "!node_modules/.cache",
+      "!node_modules/*/test",
+      "!node_modules/*/examples",
+      "!src",
+      "!README.md"
     ],
-    "identity": null, 
-    "entitlements": "./scripts/entitlements.mac.inherit.plist",
-    "sign": "builtin"
-  }
-    
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "identity": null,
+      "entitlements": "./scripts/entitlements.mac.inherit.plist",
+      "sign": "builtin"
+    }
   },
   "dependencies": {
     "imagemin": "^9.0.0",
