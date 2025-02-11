@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "lorena2",
+  "name": "matze",
   "version": "2.0.0",
   "main": "index.js",
   "scripts": {
@@ -20,16 +20,25 @@
     "electron-builder": "^25.1.8"
   },
   "build": {
-    "icon": "assets/icon.png",
-    "compression": "maximum",
-    "asar": true,
-    "files": [
-      "!node_modules/.cache",
-      "!node_modules/*/test",
-      "!node_modules/*/examples",
-      "!src",
-      "!README.md"
-  ]
+  "icon": "assets/icon.png",
+  "compression": "maximum",
+  "asar": true,
+  "files": [
+    "!node_modules/.cache",
+    "!node_modules/*/test",
+    "!node_modules/*/examples",
+    "!src",
+    "!README.md"
+  ],
+  "mac": {
+    "target": [
+      "dmg",
+      "zip"
+    ],
+    "identity": null, 
+    "entitlements": "./scripts/entitlements.mac.inherit.plist",
+    "sign": "builtin"
+  }
     
   },
   "dependencies": {
