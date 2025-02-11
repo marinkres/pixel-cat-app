@@ -49,6 +49,7 @@ Run the Game:
 npm start
 ```
 Enjoy! 🎉
+OR Win and Mac installers available.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/) Marin Kresic
