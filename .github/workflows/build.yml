@@ -1,9 +1,9 @@
-name: Build Electron App for macOS
+name: Build Matze for macOS
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
