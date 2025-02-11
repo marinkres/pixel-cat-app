@@ -48,8 +48,10 @@ Run the Game:
 ```bash
 npm start
 ```
+OR Win and Mac installers available:
+https://mkresic.itch.io/matze
+
 Enjoy! 🎉
-OR Win and Mac installers available.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/) Marin Kresic
