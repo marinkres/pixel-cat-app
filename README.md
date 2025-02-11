@@ -1,7 +1,7 @@
 
 # Matze 🐱
 
-Welcome to Matze, a fun pixel-art game created as a special gift for my girlfriend. 
+Matze, a fun ElectronJS pixel-art game created as a special gift for my girlfriend. 
 
 
 ## Demo
